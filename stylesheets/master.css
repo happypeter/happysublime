@@ -59,7 +59,11 @@ div.slide {
   height: 300px;
   background: #7EB6AD;
   color: #fff;
+  padding: 20px;
+  margin-bottom: 2em;
+  font-size: 20px;
 }
+
 
 /* layout.css */
 #wrapper {
