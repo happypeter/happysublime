@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Git Introduction</title>
+    <link rel="stylesheet" href="../stylesheets/master.css" type="text/css" media="screen" charset="utf-8"/>
+    <link rel="stylesheet" href="../stylesheets/pygments.css" type="text/css" media="screen" charset="utf-8"/>
+    <link rel="icon" type="image/png" href="../images/lgcb.png" />
+  </head>
+  <body>
+    <div id='wrapper'>
+      <div class='header'>
+        <h1>LGCB</h1>
+        <h2>Git Introduction</h2>
+      </div>
+      <div id='menu'>
+        <ul>
+          <li><a href='../'>Home</a></li>
+          <li><a href='../book'>Book</a></li>
+        </ul>
+      </div>
+      <div class='content'>
+        <p>When we write code, it’s very nice to be able to keep track of all of our
+changes such that we can always go back to an earlier version when we mess
+something up. It’s also really important to coordinate our changes with others
+working on the same code. For these reasons, programmers use programs called
+<em>Version Control Systems</em> to manage their code. Git is a VCS.</p>
+
+<p>Git is the stupid content tracker, which means it tracks your data easily.</p>
+
+<h2 id="note">NOTE:</h2>
+
+<p><a href="http://progit.org">http://progit.org</a> already there, and it even has a Chinese version, so I hope I
+won’t repeat what others already did.
+—
+layout: book
+title: Gittin Started
+—</p>
+
+<p>Fine, Let’s try to do some real work, usually when people try to talk about
+git, they suppose the listener knows about systems like SVN or CVS. I don’t,
+and if my reader–you knows nothing about these bullshit traditional version
+control systems, it is actually a advantage. </p>
+
+<h2 id="installing-git">Installing git</h2>
+
+<p>On <strong>ubuntu</strong>, it is:</p>
+
+<pre><code>sudo apt-get install git-core
+</code></pre>
+
+<p>That’s it. On other operating systems this may differ.</p>
+
+<p>Try and See:</p>
+
+<pre><code>peter@vostro:~/repo-farm/LGCB/book$ git --version
+git version 1.6.3.3
+</code></pre>
+
+<p>Now we are good to go.</p>
+
+<h2 id="i-want-versions">I want versions!</h2>
+
+<p>you have files and subdirs in a <em>common directory</em>, you have files and subdirs
+in a <em>git directory</em>. What’s the difference? It is in a <em>git directory</em>, you
+can:</p>
+
+<ul>
+  <li>have revision history of all files </li>
+  <li>so that if you make a mistake modifying these files, you are free to go
+back</li>
+  <li>so it is a time machine</li>
+</ul>
+
+<p>OK, “time machine” sounds cool, but what to do to get a <em>git directory</em>?</p>
+
+<p>now let’s do it:</p>
+
+<pre><code>peter@vostro:~$ mkdir mydir
+peter@vostro:~$ cd mydir/
+peter@vostro:~/mydir$ ls
+peter@vostro:~/mydir$ vim README
+peter@vostro:~/mydir$ ls
+README
+peter@vostro:~/mydir$ cat README 
+hello world
+</code></pre>
+
+<p>we get a <em>common directory</em> named <code>mydir</code>, and some git work</p>
+
+<pre><code>peter@vostro:~/mydir$ git init
+Initialized empty Git repository in /home/peter/mydir/.git/
+</code></pre>
+
+<p>it is nothing difficult, just a simple command <code>git init</code>, but now you get a
+<em>git directory</em> already, you see nothing until you do: </p>
+
+<pre><code>peter@vostro:~/mydir$ ls -a
+.  ..  .git  README
+</code></pre>
+
+<p>So the difference, between a common dir and a git dir is simply this little
+<code>.git</code> directory. </p>
+
+<p><code>.git</code> is the heart of git, and it is usually called a <em>git repository</em>,
+because all the history of whatever in your <code>mydir</code> is stored there.</p>
+
+<p>My people will say now: OK, <code>mydir</code> is a time machine, I am safe and allowed
+to make mistakes now, because the history is saved. Actually not yet. It is
+easy for git to automatically save whatever in <code>mydir</code> and save a new revision
+every time you change your stuff. Git can, but git won’t. Because that is not
+what the users want. So you need to it manually.</p>
+
+<p>First, tell git which file you want to track, by</p>
+
+<pre><code>peter@vostro:~/mydir$ git add README
+</code></pre>
+
+<p>so to everything other than the <code>README</code>, git will turn a blind eye.</p>
+
+<pre><code>peter@vostro:~/mydir$ git commit -a -m "my first version"
+[master (root-commit) b50d0f7] my first version
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+  create mode 100644 README
+  peter@vostro:~/mydir$ 
+</code></pre>
+
+<p>now you have the <em>r0</em> in the following graph:</p>
+
+<center><img src="./images/rev.png" /></center>
+<center>revisions</center>
+
+<p>Surely, if you have only <em>r0</em>, that’s not the point to do version control, so
+you need to make a delta, and get the <em>r1</em>, like this: </p>
+
+<pre><code>peter@vostro:~/mydir$ vim README 
+peter@vostro:~/mydir$ cat README 
+hello world
+hello again
+</code></pre>
+
+<p>Now make <em>r1</em>, like this:</p>
+
+<pre><code>peter@vostro:~/mydir$ git commit -a -m "my second verion"
+[master 3ccdf5e] my second verion
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+</code></pre>
+
+<p>Oho, so much work has been done, but we have not seen anything interesting happen,
+where is my history:</p>
+
+<p>Now there is the thing called <code>git log</code>, which is one of the many ways to get
+a look at the history:</p>
+
+<pre><code>peter@vostro:~/mydir$ git log
+
+commit 3ccdf5e1ab80ee2e818433ceeb9f2e01c0074f81
+Author: peter &lt;peter@vostro.(none)&gt;
+Date:   Wed Mar 9 09:29:13 2011 +0800
+
+    my second verion
+
+commit b50d0f74cec015c74c63c42d1f80236ce775a79d
+Author: peter &lt;peter@vostro.(none)&gt;
+Date:   Wed Mar 9 09:27:27 2011 +0800
+
+    my first version
+</code></pre>
+
+<p>Never mind if you don’t quit get what all these output means, now at least you
+know you have <code>README</code>, not only the latest version, but also all its revisions
+are saved there(in <code>.git</code>? Right!).</p>
+
+<p>Good questions now are:</p>
+
+<ul>
+  <li>how can I check the difference between different revisions?</li>
+  <li>how can I go back to certain point of the history and get the revision I
+want?</li>
+</ul>
+
+<p>My answer now is you can do these things, really easily, because git was made to
+do such jobs efficiently. 
+—
+layout: book
+title: About Version Control 
+—</p>
+
+<p>What is version control, and why should you care? </p>
+
+<p>Version control is a system that records changes to a file or set of files
+over time so that you can recall specific versions later. As a programmer, you
+usually want to control software source code,though in reality you can do this
+with nearly any type of files.</p>
+
+<center><img src="./images/rev.png" /></center>
+<center>revisions</center>
+
+<h2 id="further-reading">Further Reading</h2>
+
+<ul>
+  <li><strong>progit:</strong>
+<a href="http://progit.org/book/ch1-1.html">http://progit.org/book/ch1-1.html</a></li>
+</ul>
+
+<p>This is not so useful </p>
+
+<ul>
+  <li><strong>wikipedia:</strong>
+<a href="http://en.wikipedia.org/wiki/Revision_control">http://en.wikipedia.org/wiki/Revision_control</a></li>
+</ul>
+
+<p>I won’t suggest your reading this though it is actually useful. Have this,
+   and read this later, if you find it is too difficult for you.</p>
+
+        <div class='clearfix'></div>
+      </div>
+    </div>
+    <div id='footer'>
+      Hosted by <a href='http://github.com' target='_blank'>GitHub</a> and powered by <a href='http://github.com/mojombo/jekyll'>Jekyll</a>.
+    </div>
+  </body>
+</html>
+

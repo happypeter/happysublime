@@ -1,0 +1,35 @@
+\documentclass[oneside, 11pt, a4paper]{book}
+\usepackage[
+  urlcolor = blue,
+  colorlinks = true,
+  linkcolor = black
+]{hyperref}
+\usepackage{graphicx}
+\usepackage[labelformat=empty]{caption}
+\usepackage{float}
+\usepackage{fullpage}
+\usepackage{framed,color}
+\usepackage{xeCJK}
+\setCJKmainfont{AR PL UMing CN}
+\usepackage{listings}
+\lstset{breaklines = true} % break long code lines
+\linespread{1.5}
+\graphicspath{{<%= @graphicspath %>}}
+
+\definecolor{shadecolor}{gray}{0.9}
+
+%% turn Chinese line breaks on
+\XeTeXlinebreaklocale{zh}
+\XeTeXlinebreakskip=0em plus 0.1em minus 0.01em
+\XeTeXlinebreakpenalty=0
+%%end
+
+\begin{document}
+\title{Linux Guide for Chinese Beginners}
+\author{Peter Wang}
+\date{2014.9.17}
+\maketitle
+\tableofcontents\newpage
+
+<%= @tex %>
+\end{document}
