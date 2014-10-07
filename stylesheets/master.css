@@ -53,19 +53,13 @@ div.slide {
   max-width: 500px;
 }
 
-/* sections/styleguide.css*/
-
-.ss-guide .ss-part {
-  padding: 10px;
+/* homepage hero*/
+.hero {
+  width: 100%;
+  height: 300px;
+  background: #7EB6AD;
+  color: #fff;
 }
-.ss-guide img.ss-part-img {
-  height: 50px;
-  display: block;
-}
-.ss-guide .ss-part-desc {
-  padding-top: 5px;
-}
-
 
 /* layout.css */
 #wrapper {
