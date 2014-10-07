@@ -71,12 +71,8 @@ div.slide {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  border: 1px solid rgba(0,0,0,0.3);
-  padding: 10px;
-  -webkit-box-shadow: 0 2px 3px rgba(0,0,0,0.3),0 0 2px rgba(0,0,0,0.5);
-  -moz-box-shadow: 0 2px 3px rgba(0,0,0,0.3),0 0 2px rgba(0,0,0,0.5);
-  -ms-box-shadow: 0 2px 3px rgba(0,0,0,0.3),0 0 2px rgba(0,0,0,0.5);
-  -o-box-shadow: 0 2px 3px rgba(0,0,0,0.3),0 0 2px rgba(0,0,0,0.5);
+  border: solid 5px #FFF;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25);
 }
 
 /* layout.css */
