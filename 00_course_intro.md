@@ -1,5 +1,5 @@
 ---
-layout: book
+layout: default
 title: 内容简介
 ---
 

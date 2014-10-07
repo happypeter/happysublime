@@ -4,19 +4,20 @@
 <html>
   <head>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <title>happysublime</title>
-    <link rel="stylesheet" href="stylesheets/master.css" type="text/css" media="screen" charset="utf-8"/>
-    <link rel="icon" type="image/png" href="images/lgcb.png" />
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="./stylesheets/master.css" type="text/css" media="screen" charset="utf-8"/>
+    <link rel="stylesheet" href="./stylesheets/pygments.css" type="text/css" media="screen" charset="utf-8"/>
+    <link rel="icon" type="image/png" href="./images/lgcb.png" />
   </head>
   <body>
     <div id='wrapper'>
       <div class='header'>
-        <h1>HappySublime</h1>
+        <h2>{{ page.title }}</h2>
       </div>
       <div id='menu'>
         <ul>
-          <li><a href='index.html'>Home</a></li>
-          <li><a href='book'>Book</a></li>
+          <li><a href='/happysublime'>Home</a></li>
+          <li><a href='./about.html'>About</a></li>
         </ul>
       </div>
       <div class='content'>
@@ -25,7 +26,7 @@
       </div>
     </div>
     <div id='footer'>
-     Hosted by <a href='http://github.com' target='_blank'>GitHub</a> and powered by <a href='http://github.com/mojombo/jekyll'>Jekyll</a>.
+      Hosted by <a href='http://github.com' target='_blank'>GitHub</a> and powered by <a href='http://github.com/mojombo/jekyll'>Jekyll</a>.
     </div>
   </body>
 </html>
