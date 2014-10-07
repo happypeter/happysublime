@@ -62,6 +62,16 @@ div.slide {
   padding: 20px;
   margin-bottom: 2em;
   font-size: 20px;
+  position: relative;
+}
+.hero .peter-avatar {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 5px solid #fff;
 }
 
 
