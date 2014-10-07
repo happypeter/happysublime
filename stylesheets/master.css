@@ -74,6 +74,9 @@ div.slide {
   border: solid 5px #FFF;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25);
 }
+.author-link:hover .author-avatar {
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1) !important;
+}
 
 /* layout.css */
 #wrapper {
