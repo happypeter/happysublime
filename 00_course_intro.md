@@ -3,9 +3,41 @@ layout: default
 title: 内容简介
 ---
 
-[观看视频](http://www.imooc.com/video/3524)
 
-<!-- 3 min read -->
+{% highlight json %}
+{
+  "auto_completion": true,
+  "color_scheme": "Packages/RailsCasts Colour Scheme/RailsCastsColorScheme.tmTheme",
+  "ensure_newline_at_eof_on_save": true,
+  "file_exclude_patterns":
+  [
+    ".DS_Store",
+    "*.sublime-workspace"
+  ],
+  "folder_exclude_patterns":
+  [
+    ".git",
+    "log"
+  ],
+  "font_size": 14,
+  "hot_exit": false,
+  "ignored_packages":
+  [
+    "Vintage"
+  ],
+  "line_padding_bottom": 8,
+  "line_padding_top": 8,
+  "remember_open_files": false,
+  "save_on_focus_lost": true,
+  "scroll_past_end": true,
+  "tab_completion": true,
+  "tab_size": 2,
+  "translate_tabs_to_spaces": true,
+  "trim_trailing_white_space_on_save": true
+}
+{% endhighlight %}
+
+
 
 # Peter 是谁？
 
