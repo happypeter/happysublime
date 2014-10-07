@@ -65,6 +65,10 @@ pre {
   font-style: italic;
 }
 
+.highlight .kc {
+  color: #6c9cbd;
+  /* blue */
+}
 
 /*--- html ---*/
 
