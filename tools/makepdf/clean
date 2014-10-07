@@ -1,3 +1,0 @@
-#!/bin/bash
-
-rm *.aux *.log *.out *.toc *.tex
