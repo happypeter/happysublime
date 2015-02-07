@@ -4,53 +4,19 @@ title: 内容简介
 ---
 
 
-{% highlight json %}
-{
-  "auto_completion": true,
-  "color_scheme": "Packages/RailsCasts Colour Scheme/RailsCastsColorScheme.tmTheme",
-  "ensure_newline_at_eof_on_save": true,
-  "file_exclude_patterns":
-  [
-    ".DS_Store",
-    "*.sublime-workspace"
-  ],
-  "folder_exclude_patterns":
-  [
-    ".git",
-    "log"
-  ],
-  "font_size": 14,
-  "hot_exit": false,
-  "ignored_packages":
-  [
-    "Vintage"
-  ],
-  "line_padding_bottom": 8,
-  "line_padding_top": 8,
-  "remember_open_files": false,
-  "save_on_focus_lost": true,
-  "scroll_past_end": true,
-  "tab_completion": true,
-  "tab_size": 2,
-  "translate_tabs_to_spaces": true,
-  "trim_trailing_white_space_on_save": true
-}
-{% endhighlight %}
-
-
-
 # 课程简介
 
-本课程名字是 Linux Guide for Developers 。linux 的知识点浩如烟海，作为开发者，日常用到的只是里面的一小部分，我自己当年就学过很多东西，但是后来发现根本用不上，而且发现知识点是散的，而实用中却要求综合灵活运用知识。本课程以动手为导向来组织内容的，理论讲解服务动手。课程采用 ubuntu 为例，讲解面向开发者的 Linux 命令行技巧。
+展示 sublime 最 cool 的一些功能，说明为啥学习 sublime 是值得的。
 
-![](images/ubuntu_cloud.png)
+区别于 imooc 已有的前端 sublime 课程，本课程不深入到具体某种角度中。而是
+- 侧重一个新手对应 sublime 基础使用的理解，包括快捷键的系统，配置系统，的基础规律
+- 宏观应对一个 web 项目，也就是一颗代码树的各种配置和使用技巧，配合 git/css/html
 
-涉及到的知识有：命令行终端配置使用，Linux 文件系统结构，如何自由跳转并操作文件。接下来告诉你什么是用户，如何设置权限，以及命令行环境下常用网络操作。也会来探索重定向原理，进程操作，搜索功能，软件安装。最后介绍了 bash 脚本书写的基本技巧，让你真正感受到自动化带来的效率提升。
+- 命令面板，方便记住快捷键
+- 多点编辑
+- 快速文件切换
+- 极速大目录树搜索
+- 强劲社区 Package Control
+- 已经形成事实标准：atom，nitrious.io codepen webstrom 很多地方都可以适应同样的快捷键。
 
 # 适合观众
-
-本课程普遍的适合工作时会打开两个窗口的同学：一个代码编辑器，一个命令行，就像我自己一样。但是如果你工作时每天都只会打开命令行终端，那么很可能你从事的是专业的系统管理工作，那么你需要的 Linux 知识可能要比本课程中介绍的多的多，但是不否认本课程依然可以作为你的第一块垫脚石。
-
-![](images/two_window.png)
-
-你是 php，python，ruby 等语言来进行互联网开发，那么本课程会适合你的，如果你是 Andriod/ios  开发者，这里的知识同样适合你。总之这套课程服务 People Building Things 。 高科技时代的 craftsman 。
