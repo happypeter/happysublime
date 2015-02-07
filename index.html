@@ -7,9 +7,9 @@ title: HappySublime
 
 <!--
 - radom notes
+  - https://code.tutsplus.com/courses/perfect-workflow-in-sublime-text-2
   - 视频中我只讲 Mac 下的快捷键，但是在官方文档上可以找到 windows 的
-  - 查找替换：Ctrl-F 本文件，鼠标点击目录在目录中查找，快捷键都没啥用
-  - 一些很细节但是很重要的点：例如 indent/autocomplete 是否有必要单开一集来讲
+
 
 - 常用快捷键
   - 不需要配置和安装插件的 shortcut
@@ -27,15 +27,38 @@ title: HappySublime
 - 分屏操作
 - 自定义 build
 - settings
-  - Packages/Users 是存放用户自定义配置的地方
+  - Data Dir: OS X: ~/Library/Application Support/Sublime Text 3
+  - preferences ->
+  - Packages/Users 是存放用户自定义配置的地方，如果你更新 sublime 或者某些包，这里是不会被覆盖的。
   - 对单个包的设置也会放在这里，sublime->preferences->packages setting -> emmet
   - 这些配置会覆盖原有配置
+  - settings 如果很多，可以分成很多个文件，各自命名方式和覆盖优先级参考：http://sublime-text-unofficial-documentation.readthedocs.org/en/latest/customization/settings.html#format
+  - 讲到 tab_size 和 ignore pattern 的时候提一下，settings 也可以针对特定文件类型和特定项目来具体设置，只不过比较麻烦，我不做
+
+- autocomplete
+  - 自动补齐当前文件中已经敲过的单词
+- indent
+  - 这个也算 setting，不过可以考虑单独录一集
+  - http://www.sublimetext.com/docs/2/indentation.html
+  - auto reindent 放在这里讲
+
+- 查找
+  - 这个怎么也得弄一集
+  - 可以提提 Ctrp-P xxx#index xxx@xxx 也算是查找的一种方式
+  - 查找替换：Ctrl-F 本文件，鼠标点击目录在目录中查找，快捷键都没啥用
+
+
 - package control
   - 安装 railscasts color theme
 - emmet
+  - happycasts.net/ep/111
 - snippets
 - keybinds
   - 从 keybinds default 中找语句，用 console log 出命令名，在 keybinding user 中来设置
+
+- 自动错误检查
+  - linter
+  - spell checking
 
  -->
 

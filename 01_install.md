@@ -14,6 +14,7 @@ title: 安装
 ### 命令行中打开
 
 
+
 ### sidebar 和 minimap
 
 可以用 Ctrl-K-B 打开或关闭文件导航栏，右边的缩略图叫 minimap，可以用 Cmd-Shift-P 打开命令面板，然后输入 minimap 就知道如何来关闭它了。
