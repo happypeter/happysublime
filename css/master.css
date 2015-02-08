@@ -223,17 +223,29 @@ code {
   border: 1px solid teal;
 }
 
-/* github style diff color gi*/
 
-.highlight .language-diff .gi {
-  background: #EAFFEA;
-  padding: 7px 0;
-  /* github green */
+/* homepage hero*/
+.hero {
+  background: #7EB6AD;
+  color: #fff;
+  padding: 60px;
+  margin: 0 30px 30px 30px;
+  font-size: 17px;
+  position: relative;
+  line-height: 1.9;
+}
+.hero .author-avatar {
+  position: absolute;
+  top: 20px;
+  left: -50px;
+  margin: 0;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: solid 5px #FFF;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25);
 }
 
-
-.highlight .language-diff .gd {
-  background-color: #ffecec;
-  padding: 7px 0;
-  /* github diff red */
+.author-avatar:hover {
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.75) !important;
 }
