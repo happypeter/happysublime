@@ -5,11 +5,11 @@ title: 安装
 
 ### 安装并添加 license
 
-首页上暂时还是 sublimeText2 要下载 3 到 <https://www.sublimetext.com/3>
+首页上暂时还是 sublimeText2 要下载 `3` 到 <https://www.sublimetext.com/3>
 
 到 menu->help->add license 添加购买的 license 。
 
-如果 license key 丢失，可以到 http://www.sublimetext.com/retrieve 重新获取。
+如果 license key 丢失，可以到 <http://www.sublimetext.com/retrieve> 重新获取。
 
 我一般会用系统上的 Alfred 来打开，或者作为一个习惯性的命令行用户，更多的时跳转到项目中
 
