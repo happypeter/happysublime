@@ -23,6 +23,7 @@ title: 安装
     export PATH=~/bin:$PATH
 
 然后
+
     cd ~/bin
     ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl subl
 
