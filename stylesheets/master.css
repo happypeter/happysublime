@@ -401,3 +401,14 @@ h3.subtitle small {
    width: 60px;
 }
 
+code {
+  font-size: 14px;
+  padding: 3px 5px;
+  background: #eee;
+  color: teal;
+}
+
+pre code {
+  background: none;
+  color: white;
+}
