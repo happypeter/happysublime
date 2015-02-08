@@ -1,13 +1,16 @@
-.highlight {
-  margin: 10px 0;
+
+.language-yaml .p-Indicator {
+  color: #e7be69; /* yellow */
+}
+.language-yaml .l-Scalar-Plain {
+  color: #a4c260; /* green */  
 }
 
-pre {
-  background: #232323;
-  color: #E6E0DB;
+.highlight .sh {
+  color: #a4c260;
 }
-.highlight pre code{
-  background: none;
+.highlight .vg {
+  color: #d0cffe;
 }
 
 .highlight .k {
@@ -20,7 +23,8 @@ pre {
 
 /* name of class */
 .highlight .nc {
-  color: #fff;
+  color: #e7be69;
+  /* yellow */
 }
 
 
@@ -65,20 +69,28 @@ pre {
   font-style: italic;
 }
 
-.highlight .kc {
-  color: #6c9cbd;
-  /* blue */
-}
 
 /*--- html ---*/
 
 /*html tags*/
 .highlight .nt, .highlight .na{
-  color: #e7be69;
+  color: #6c9cbd;
+  /* blue */
 }
 
 /*--- javascript ---*/
 
 .highlight .kd {
   color: #cb7832;
+  /* brown */
+}
+
+.highlight .kt {
+  color: #cb7832;
+  /* brown */
+}
+
+.highlight .x {
+  color: #e7be69;
+  /* yellow */
 }
