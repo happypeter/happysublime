@@ -15,6 +15,19 @@ title: HappySublime
   - 不需要配置和安装插件的 shortcut
   - Cmd-j 合并一行
   - Cmd-d 选中当前单词，继续敲可以选中多个
+  - Cmd-/ comment
+  - Ctrl-]/[ indent the line
+  - Ctrl-L select the whole line(to delete or sth)
+  - Ctrl-enter/shift-Ctrl-enter
+  - Ctrl+Z 撤销
+  - Ctrl+Y 恢复撤销
+  - menu -> edit -> line
+    - Shift-Arrow 就是以字母为单位来选中
+    - Alt 配合 arrow/delete 就是以单词为单位的移动和删除
+    - Alt+shift 加 arrow 就是以单词为单位的选中
+    - 把 Alt 替换成 Cmd 那么，操作对象的颗粒就大了
+  - 给几个单词加上引号
+    - 选中 Alt-shift-arrow 然后直接敲一个引号就行了
   - 列选择
   - 开一个新页面，切换页面
 
@@ -52,13 +65,23 @@ title: HappySublime
   - 安装 railscasts color theme
 - emmet
   - happycasts.net/ep/111
+
+- 还是要有一集讲几个重要的包
+  - advanced new file
 - snippets
+
+  { "keys": ["super+alt+p"], "command": "show_scope_name" },
+  { "keys": ["ctrl+shift+p"], "command": "show_scope_name" },
+
 - keybinds
   - 从 keybinds default 中找语句，用 console log 出命令名，在 keybinding user 中来设置
 
 - 自动错误检查
   - linter
   - spell checking
+    { "keys": ["f6"], "command": "toggle_setting", "args": {"setting": "spell_check"} },
+    { "keys": ["ctrl+f6"], "command": "next_misspelling" },
+    { "keys": ["ctrl+shift+f6"], "command": "prev_misspelling" },
 
  -->
 
