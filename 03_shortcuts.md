@@ -6,18 +6,15 @@ title: 最常用的快捷键
 
 网上搜一下 “sublime 常用快捷键” 可以找到一些总结的很好的文档，这个就是随用随学。我这里 show 一下最常用的一些，先让你找找感觉。
 
+	  - 开一个新页面，切换页面
 	  - Cmd-j 合并一行
 	  - Cmd-d 选中当前单词，继续敲可以选中多个
-	  - Cmd-/ comment
-	  - Ctrl-]/[ indent the line
-	  - Ctrl-L select the whole line(to delete or sth)
-	  - Ctrl-enter/shift-Ctrl-enter
+	  - Cmd-/ 注释掉/取消注释
+	  - Ctrl-]/[ 缩进
+	  - Ctrl-L 选择当前行
+	  - Ctrl-enter/Shift-Ctrl-enter 当前行之前或之后开辟一行
 	  - Ctrl+Z 撤销
-	  - Ctrl+Y 恢复撤销
-	  - 给几个单词加上引号
-	    - 选中 Alt-shift-arrow 然后直接敲一个引号就行了
 	  - 列选择，按住 Option 键，用鼠标左键拖动。
-	  - 开一个新页面，切换页面
 
 ### 操作粒度
 
