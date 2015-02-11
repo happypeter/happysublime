@@ -1,4 +1,4 @@
-·---
+---
 layout: default
 title: 配置都放在一个文件夹
 ---
