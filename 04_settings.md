@@ -1,13 +1,13 @@
----
+·---
 layout: default
-title: 配置都放在一个目录下
+title: 配置都放在一个文件夹
 ---
 
-sublime 有一个很简单的特点，就是所有用户自定制的内容都会放在一个目录中。不同的操作系统肯定是不同的，google 一下就知道了，不过 Mac 系统下是
+sublime 有一个很简单的特点，就是所有用户自定制的内容都会放在一个文件夹中。不同的操作系统肯定是不同的，google 一下就知道了，不过 Mac 系统下是
 
     ~/Library/Application Support/Sublime Text 3/Packages/User
 
-写到这里的数据是不会被自动升级而被覆盖的。可以到 menu->Sublime Text->Preferences->Browse Packages 中找到这个目录。
+写到这里的数据是不会被自动升级而被覆盖的。可以到 menu->Sublime Text->Preferences->Browse Packages 中找到这个文件夹。
 
 ### 配置内容到底有哪些
 
@@ -17,9 +17,9 @@ sublime 有一个很简单的特点，就是所有用户自定制的内容都会
 
 ### Settings
 
-Key Bindings 前面已经说了，这一集来说说 Settings 。用命令面板找到 `settings` 看到也一样是有两项：Default 和 User。同样也是 Default 中的内容是不许改的，要改就在 User 中改，改完了的内容会保存到 Packages/User 目录下面。
+Key Bindings 前面已经说了，这一集来说说 Settings 。用命令面板找到 `settings` 看到也一样是有两项：Default 和 User。同样也是 Default 中的内容是不许改的，要改就在 User 中改，改完了的内容会保存到 Packages/User 文件夹下面。
 
-存放到 User 目录下的内容会覆盖 Default 中的内容。所有的东西都是纯文本的，这个是 Unix 的哲学了，保持纯文本，保持简单透明。
+存放到 User 文件夹下的内容会覆盖 Default 中的内容。所有的东西都是纯文本的，这个是 Unix 的哲学了，保持纯文本，保持简单透明。
 
 
 ### 设置内容的组织和优先级
