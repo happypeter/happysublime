@@ -48,18 +48,19 @@ Settings Default 文件中
 {% highlight json %}
 "file_exclude_patterns":
 [
-	".DS_Store",
-	"*.sublime-workspace",
-	"*.scssc"
+  ".DS_Store",
+  "*.sublime-workspace",
+  "*.scssc"
 ],
 "folder_exclude_patterns":
 [
-	".git",
-	"log",
-	"tmp/cache",
-	".vagrant"
+  ".git",
+  "log",
+  "tmp/cache",
+  ".vagrant"
 ],
 "tab_size": 2,
+"translate_tabs_to_spaces": true,
 {% endhighlight %}
 
-但是，这些设置有时候对于不同的项目是会有区别的，sublime 是有相应的解决方法的，就是可以通过设置 [Projects](http://www.sublimetext.com/docs/3/projects.html) 来实现。基本思路就是给每个项目添加 xxx.sublime-project 文件，里面的配置会把 User/ 中的设置给覆盖了。不过这样还是稍微有些麻烦，除非特别必要，自己手动临时改改 User/ 中的这个 settings 文件就好。
+但是，这些设置有时候对于不同的项目是会有区别的，sublime 是有相应的解决方法的，就是可以通过设置 [Projects](http://www.sublimetext.com/docs/3/projects.html) 来实现。如果觉得英文看得不顺也可以参考 [这里](http://feliving.github.io/Sublime-Text-3-Documentation/)。基本思路就是给每个项目添加 xxx.sublime-project 文件，里面的配置会把 User/ 中的设置给覆盖了。不过这样还是稍微有些麻烦，除非特别必要，自己手动临时改改 User/ 中的这个 settings 文件就好。
