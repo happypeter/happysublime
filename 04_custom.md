@@ -8,7 +8,7 @@ title: 自定制
 ### One Place for All
 sublime 有一个很简单的特点，就是所有用户自定制的内容都会放在一个文件夹中。不同的操作系统肯定是不同的，google 一下就知道了，不过 Mac 系统下是
 
-~/Library/Application Support/Sublime Text 3/Packages/User
+	~/Library/Application Support/Sublime Text 3/Packages/User
 
 写到这里的数据是不会被自动升级而被覆盖的。可以到 menu->Sublime Text->Preferences->Browse Packages 中找到这个文件夹。
 
