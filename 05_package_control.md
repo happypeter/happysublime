@@ -3,6 +3,19 @@ layout: default
 title: 用 Package Control 来安装扩展包
 ---
 
+直接安装 sublime 之后，在
+
+    /Applications/Sublime\ Text.app/Contents/MacOS/Packages
+
+默认就安装了很多功能扩展包，但是实际中依然，肯定，需要自己安装其他的包，这个可以通过 Package Control 这个工具来完成。
+
+顺便提一下，默认安装的 snippet 当然是会提供很多功能出来，可能有的功能是你不用的，甚至是略微碍事的，可以通过
+
+{% highlight json %}
+"ignored_packages":["PHP"],
+{% endhighlight %}
+
+来禁用。
 
 ### 安装 Package Control
 到 <https://packagecontrol.io/installation> 可以看到 sublime3 中的安装方式，Control+反引号打开控制台，运行代码就可以安装上了。
