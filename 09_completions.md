@@ -1,96 +1,91 @@
 ---
 layout: default
-title: 补齐
+title: 补全 
 ---
 
-前面两集 emmet 和 snippet 其实都是属于“补齐”这个功能。
+前面两集 emmet 和 snippet 其实都是属于“补全”这个功能。 英文是 Completion 。总的参考文档 [在这里](http://docs.sublimetext.info/en/latest/extensibility/completions.html) 。
 
-### Tab Completion
+### Tab 补全
 
-自动补齐当前文件中已经敲过的单词。直接敲 tab 就可以了，默认就是支持的。
+自动补全当前文件中已经敲过的单词。直接敲 tab 就可以了，默认就是支持的。
 
 `Settings Defualt` 下有这些内容
 
-
-    // When enabled, pressing tab will insert the best matching completion.
-    // When disabled, tab will only trigger snippets or insert a tab.
-    // Shift+tab can be used to insert an explicit tab when tab_completion is
-    // enabled.
     "tab_completion": true,
 
 
-
-<!-- http://www.granneman.com/webdev/editors/sublime-text/top-features-of-sublime-text/auto-completion-in-sublime-text/ 
-
-Tag 这个包的功能都是和 emmet 重复的	
--->
+意思是打开一个文件，敲一个触发词，然后敲 tab 是能补全成一个我想要的文字片段的。这个没有什么陌生的，前面 snippets 一集，就属于这种情况。只不过不是唯一的一种情况。
 
 
-首先在文件中输入下面的内容：
-
-     meet
-     more
-
-然后
-
-     m<tab>
+根据 [这里](http://docs.sublimetext.info/en/latest/extensibility/completions.html#sources-for-completions-and-their-priorities) 的说明，tab 补齐功能依次会在下面四个地方去找触发词，英文术语叫 Trigger 。
 
 
-连续敲 tab 可以补齐各个不同的备选项。
+	1. Snippets
+	2. 通过 API on_query_completions() 设置的内容，这个咱们暂时不管
+	3. 专门的自动补齐文件，也就是 xxx.sublime-completions
+    4. 当前文件中已经敲过的词
+
+第一项已经详细聊过了，第二项内容比较深入了，本课程中就不涉及了。来说说第三项的自动补齐文件。自带的就不说了，主要说说怎么来自己添加触发词。参考：[Completion Files](http://docs.sublimetext.info/en/latest/reference/completions.html) 
+<!-- 功能上跟 snippet 比较重合，貌似就是在格式让比较简单，可以在一个文件内写多项，但是弱点是不方便写多行的片段。 -->
+
+最后一个查找范围就是当前文件中已经输入过的单词了，这个也是我觉得离不了的，一个单词输入过一遍了，为啥还要再输入一遍呢。 
+
+### 自动补全
+
+参考 [这里](https://www.sublimetext.com/docs/3/auto_complete.html) 。
+
+“自动补全”并不说又有了一种新的补齐方式。而只是说输入了触发词，那么不用敲 tab ，就可以显示可能的触发词了，默认只要敲 Enter 就可以补全了。
+
+这个功能也是在 Settings - Default 中默认就设置好的：
+
+{% highlight json %}
+"auto_complete": true,
+{% endhighlight %}
+
+但是，自动补全的不是在每种文件类型中都会被触发的，Settings Default 中是这样设置的
+
+{% highlight json %}
+// Controls what scopes auto complete will be triggered in
+"auto_complete_selector": "source - comment, meta.tag - punctuation.definition.tag.begin",
+
+// Additional situations to trigger auto complete
+"auto_complete_triggers": [ {"selector": "text.html", "characters": "<"} ],
+{% endhighlight %}
+
+scope 的详细说明在 [这里](http://docs.sublimetext.info/en/latest/extensibility/syntaxdefs.html#scopes) 。
 
 
-	{ "keys": ["alt+ctrl+space"], "command": "replace_completion_with_auto_complete", "context":
-		[
-			{ "key": "last_command", "operator": "equal", "operand": "insert_best_completion" },
-			{ "key": "auto_complete_visible", "operator": "equal", "operand": false },
-			{ "key": "setting.tab_completion", "operator": "equal", "operand": true }
-		]
-	},
-
-
-[Completion Files](http://docs.sublimetext.info/en/latest/reference/completions.html) 功能上跟 snippet 比较重合，貌似就是在格式让比较简单，可以在一个文件内写多项，但是弱点是不方便写多行的片段。
-<!-- \n \t 包括引号都要转义 http://stackoverflow.com/questions/27107992/condense-all-my-snippets-into-one-file-in-sublime-text-3 -->
-
-
-输入一个缩写，然后敲 tab 这样触发的应该都是 ”TAB 补齐“ 功能，包括 snippet 也包括 emmet 。
-
-tab 补齐内容来源以及各自优先级，参考 [这里](http://docs.sublimetext.info/en/latest/extensibility/completions.html#sources-for-completions-and-their-priorities)		
-
-###  Auto Completion
-
-“自动补齐”的意思就是只要输入了触发词，那么不用敲 tab ，就可以显示可能的触发词了。
-
-默认只要敲 Enter 就可以自动补齐了。但是问题是这时候，回车就不能用来换行了，
+首先第一个问题是这时候，自动补齐生效的时候，回车就不能用来换行了，怎么解决？
 
 Settings Default 下面有
   
-    "auto_complete_commit_on_tab": false,
+{% highlight json %}
+"auto_complete_commit_on_tab": false,
+{% endhighlight %}
 
 在 Setting User 中
 
-        "auto_complete_commit_on_tab": false,
+{% highlight json %}
+"auto_complete_commit_on_tab": true,
+{% endhighlight %}
+
+这样就可以敲 tab 来补全，而 Enter 现在就可以用来输入换行了。
 
 
-这样就可以用 Enter 来换行，敲 tab 来补齐了。
+第二个问题，在不支持自动补齐的文件类型的文件中，如何才能看到备选项呢？
 
-打开一个 ruby 文件，敲 `d` 就可以自动补齐出所有的 snippet 的缩写。
-<!-- 这个是非常方便的，
-在 markdown 文件中，大概因为文件类型不是 source ，所以 auto completions 根本不工作
-markdown 中如果敲 `h` 然后 `Alt-Control-Space` 还是可以出来 sublime-completions 中的 trigger 的。
- -->
-  - http://docs.sublimetext.info/en/latest/extensibility/completions.html?highlight=complet
+Keybinding Default 中有相关设置：
 
-自动补齐的不是在每种文件类型中都会被触发的，Settings Default 中是这样设置的
+{% highlight json %}
+{ "keys": ["ctrl+space"], "command": "auto_complete" },
+{% endhighlight %}
 
-   // Controls what scopes auto complete will be triggered in
-    "auto_complete_selector": "source - comment, meta.tag - punctuation.definition.tag.begin",
+意思是只要敲 ctrl+space 快捷键，就可以看到跟自动补齐一样的效果了。但是我这里 ctrl+space 用来切换中文输入法了，所以要在 Keybinding User 中改一下
 
-    // Additional situations to trigger auto complete
-    "auto_complete_triggers": [ {"selector": "text.html", "characters": "<"} ],
+{% highlight json %}
+{ "keys": ["alt+space"], "command": "auto_complete" },
+{% endhighlight %}
 
-scope 的详细说明在 [这里](http://docs.sublimetext.info/en/latest/extensibility/syntaxdefs.html#scopes)
+这样就可以了。
 
-参考 <https://www.sublimetext.com/docs/3/auto_complete.html>
-
-
- http://sublimecodeintel.github.io/SublimeCodeIntel/
+最后，如果觉得还是补齐的不够丰富，可以看看 <http://sublimecodeintel.github.io/SublimeCodeIntel/> 。
