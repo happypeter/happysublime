@@ -9,29 +9,26 @@ title: 快速查找文件或字符串
 
 Cmd-p ，这个打开的功能叫做 goto anything ，见 menu->Goto 。打开后，然后敲你想要的文件名就行了，支持模糊匹配的。同时支持下面几种操作形式，让定位更准确
 
-
     filename:lineno
     filename@css-selector
     filename@function
 
-
 甚至还可以直接在新打开的文件中定位字符串。
-
 
     filename#searchtext
 
+更多内容参考 [这里](http://sublime-text-unofficial-documentation.readthedocs.org/en/latest/file_management/file_management.html) 。
 
-更多内容参考 [这里](http://sublime-text-unofficial-documentation.readthedocs.org/en/latest/file_management/file_management.html）。
+如果文件想要对照着来开发，可以执行分屏操作。另外，打开一个新的项目一般会开启另外一个窗口，两个窗口之间切换用 Cmd 跟上反引号。
 
-如果文件想要对照着来开发，可以执行分屏操作。打开一个新的项目一般会开启另外一个窗口，两个窗口之间切换用 Cmd 跟上反引号。
-
-
-### 查找字符串
-
+### 当前文件中查找字符串
 首先是在本文件中查找。敲 Cmd-f 就可以打开搜索框了。Enter 查找下一处，Shift-Enter 查找上一处。
 查找替换就用 Option-Cmd-f ，这个要是快捷键忘了不怕，menu->find 下面列出了。
 
+另外一种方式，就是用 Cmd-d 。把光标停留在要找的单词上面，然后 Cmd-d 连续敲多次，就可以找出所有当前文件中的这个单词，而且是直接在多点编辑模式下，可以直接进行替换。
 
+### 整个文件夹里来查找字符串
 一个文件夹内全局查找。鼠标右击文件夹，`Find in Folder` 就可以了。打开下一个匹配项用 F4，上一处 Shift-F4，不管用鼠标直接点也挺方便。
+
 
 
