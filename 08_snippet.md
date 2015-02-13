@@ -26,7 +26,7 @@ title: ${1:标题}
 
 ${2}
 ]]></content>
-  <tabTrigger>layout</tabTrigger>
+  <tabTrigger>header</tabTrigger>
   <scope>text.html.markdown</scope>
 </snippet>
 {% endhighlight %}
