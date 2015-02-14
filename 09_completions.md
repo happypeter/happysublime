@@ -19,7 +19,7 @@ title: 代码补全
 	 2. 通过 API on_query_completions() 设置的内容，这个咱们暂时不管
 	 3. 专门的自动补全文件，也就是 xxx.sublime-completions
    4. 当前文件中已经敲过的词
-
+ 
 上面这四个地方找到的触发词都会出现在 “补全列表” 中。例如在一个 markdown 文件中，已经敲过了 `test` 这个单词，并且也知道前面一集也定义了 `top` 这个 snippet 。那么敲一下 `t` 如何才能看到这个补全列表呢？
 
 Keybinding Default 中有相关设置：
@@ -53,7 +53,6 @@ Keybinding Default 中有相关设置：
 {% endhighlight %}
 
 但是，自动补全的不是在每种文件类型中都会被触发的，Settings Default 中是这样设置的
-(基本上就是在文本类型的文档中就不会被打开，是想在一个有几千单词的文档中，如果 auto_complete 开着，那么敲任何字符都会有可以补全的内容了，那样就太闪了)
 
 {% highlight json %}
 // Controls what scopes auto complete will be triggered in
