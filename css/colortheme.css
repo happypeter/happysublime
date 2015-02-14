@@ -22,7 +22,7 @@
 }
 
 /* name of class */
-.highlight .nc {
+.highlight .nc, .highlight .c {
   color: #e7be69;
   /* yellow */
 }
