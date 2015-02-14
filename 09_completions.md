@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 补全 
+title: 代码补全
 ---
 
 前面两集 emmet 和 snippet 其实都是属于“补全”这个功能。 英文是 Completion 。总的参考文档 [在这里](http://docs.sublimetext.info/en/latest/extensibility/completions.html) 。

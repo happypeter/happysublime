@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 库技巧推荐
+title: 超酷技巧推荐
 ---
 
 ### 分屏操作
