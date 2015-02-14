@@ -5,6 +5,7 @@ title: 批处理任务 build
 
 build 从这个名字就可以看出来，很多时候可以定义来执行编译任务。
 
+参考 [这里](http://sublime-text-unofficial-documentation.readthedocs.org/en/latest/reference/build_systems.html) 。
 
 ### chrome 打开 html 文件
 
