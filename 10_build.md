@@ -22,15 +22,29 @@ git.sublime-build 中这样写
 
 {% highlight json %}
 {
-    "cmd": ["/Users/peter/bin/git.sh"],
-    "shell": "bash",// 如果不在 git.sh 里指定 shebang 就必须要这一行
+    "cmd": ["/Users/peter/bin/git.sh", "$file"],
     "working_dir": "$file_path"
 }
 {% endhighlight %}
 
+<!-- 注意 git.sh 中一定要写 shebang -->
 就可以执行 git.sh 了，这个里面可以写
 
-    git commit -a -m"i" && git push
+{% highlight json %}
+#!/usr/bin/env bash
+git commit -a -m"i" && git push
+# echo  $1
+VAR=$1 # full file patch, e.g /Users/peter/rails10-va/happysublime/10_build.md
+FILE=`basename $VAR` # get 10_build.md from full path
+PAGE=${FILE%.*}".html" # 10_build.md -> 10_build.html
+
+DIR=`dirname $VAR`
+PROJECT=`basename $DIR` # get happysublime
+echo $PARENT
+URL="happypeter.github.io/"$PROJECT"/"$PAGE
+'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' $URL
+{% endhighlight %}
+
 
 下面再来到 git.sh 添加个在 chrome 打开这个文件就可以了。
 <!-- https://code.tutsplus.com/courses/perfect-workflow-in-sublime-text-2/lessons/custom-builds -->
