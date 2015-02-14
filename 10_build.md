@@ -20,11 +20,13 @@ build 从这个名字就可以看出来，很多时候可以定义来执行编�
 
 git.sublime-build 中这样写
 
+{% highlight json %}
 {
     "cmd": ["/Users/peter/bin/git.sh"],
-    "shell": "bash",
+    "shell": "bash",// 如果不在 git.sh 里指定 shebang 就必须要这一行
     "working_dir": "$file_path"
 }
+{% endhighlight %}
 
 就可以执行 git.sh 了，这个里面可以写
 
