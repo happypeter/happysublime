@@ -14,7 +14,9 @@ title: 批处理任务 build
 
 build 从这个名字就可以看出来，很多时候可以定义来执行编译任务。
 
-### 可以在 build 这里直接执行一个 sh script
+### build 我的 jekyll 页面
+
+可以在 build 这里直接执行一个 sh script
 
 git.sublime-build 中这样写
 
@@ -27,4 +29,6 @@ git.sublime-build 中这样写
 就可以执行 git.sh 了，这个里面可以写
 
     git commit -a -m"i" && git push
+
+下面再来到 git.sh 添加个在 chrome 打开这个文件就可以了。
 <!-- https://code.tutsplus.com/courses/perfect-workflow-in-sublime-text-2/lessons/custom-builds -->
