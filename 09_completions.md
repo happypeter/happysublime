@@ -11,7 +11,7 @@ title: 代码补全
 
     "tab_completion": true,
 
-意思是打开一个文件，敲一个触发词，然后敲 tab 是能补全成一个我想要的文字片段的。这个没有什么陌生的，前面 snippets 一集，就属于这种情况。只不过不是唯一的一种情况。
+意思是打开一个文件，敲一个触发词，然后敲 tab 是能补全成一个片段的。这个没有什么陌生的，前面 snippets 一集，就属于这种情况。只不过不是唯一的一种情况。
 
 根据 [这里](http://docs.sublimetext.info/en/latest/extensibility/completions.html#sources-for-completions-and-their-priorities) 的说明，tab 补全功能依次会在下面四个地方去找触发词，英文术语叫 Trigger 。
 
@@ -79,8 +79,6 @@ Settings Default 下面有
 {% endhighlight %}
 
 这样就可以敲 tab 来补全，而 Enter 现在就可以用来输入换行了。
-
-
 
 
 最后，如果觉得还是补全的不够丰富，可以看看 <http://sublimecodeintel.github.io/SublimeCodeIntel/> 。
