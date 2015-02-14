@@ -15,10 +15,10 @@ title: 代码补全
 
 根据 [这里](http://docs.sublimetext.info/en/latest/extensibility/completions.html#sources-for-completions-and-their-priorities) 的说明，tab 补全功能依次会在下面四个地方去找触发词，英文术语叫 Trigger 。
 
-	1. Snippets
-	2. 通过 API on_query_completions() 设置的内容，这个咱们暂时不管
-	3. 专门的自动补全文件，也就是 xxx.sublime-completions
-  4. 当前文件中已经敲过的词
+	 1. Snippets
+	 2. 通过 API on_query_completions() 设置的内容，这个咱们暂时不管
+	 3. 专门的自动补全文件，也就是 xxx.sublime-completions
+   4. 当前文件中已经敲过的词
 
 上面这四个地方找到的触发词都会出现在 “补全列表” 中。例如在一个 markdown 文件中，已经敲过了 `test` 这个单词，并且也知道前面一集也定义了 `top` 这个 snippet 。那么敲一下 `t` 如何才能看到这个补全列表呢？
 
