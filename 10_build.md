@@ -30,7 +30,7 @@ git.sublime-build 中这样写
 <!-- 注意 git.sh 中一定要写 shebang -->
 就可以执行 git.sh 了，这个里面可以写
 
-{% highlight json %}
+{% highlight sh %}
 #!/usr/bin/env bash
 git commit -a -m"i" && git push
 # echo  $1
