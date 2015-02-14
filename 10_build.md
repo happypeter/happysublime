@@ -3,16 +3,21 @@ layout: default
 title: 批处理任务 build
 ---
 
-  
+build 从这个名字就可以看出来，很多时候可以定义来执行编译任务。
 
-    {
-      "cmd": ["/Applications/Google Chrome.app/Contents/MacOS/Google Chrome", "$file"],
-      "selector": "text.html"
-    }
+
+### chrome 打开 html 文件
+
+{% highlight json %}
+{
+  "cmd": ["/Applications/Google Chrome.app/Contents/MacOS/Google Chrome", "$file"],
+  "selector": "text.html"
+}
+{% endhighlight %}
+
 
 <!-- 给我的 jekyll 文件来一个 build，可以直接 push 到 github 并且，刷新页面的 -->
 
-build 从这个名字就可以看出来，很多时候可以定义来执行编译任务。
 
 ### build 我的 jekyll 页面
 
@@ -46,5 +51,4 @@ URL="happypeter.github.io/"$PROJECT"/"$PAGE
 {% endhighlight %}
 
 
-下面再来到 git.sh 添加个在 chrome 打开这个文件就可以了。
 <!-- https://code.tutsplus.com/courses/perfect-workflow-in-sublime-text-2/lessons/custom-builds -->
