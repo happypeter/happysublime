@@ -38,9 +38,7 @@ Keybinding Default 中有相关设置：
 
 ### 自定制补全文件
 
-上面列表中，第一项已经详细聊过了，第二项内容比较深入了，本课程中就不涉及了。来说说第三项的补全文件。自带的就不说了，主要说说怎么来自己添加触发词。参考：[Completion Files](http://docs.sublimetext.info/en/latest/reference/completions.html) 
-
-最后一个查找范围就是当前文件中已经输入过的单词了，这个也是我觉得离不了的，一个单词输入过一遍了，为啥还要再输入一遍呢。 
+来说说列表中提到的第三项补全文件。看怎么来自己添加触发词。参考：[Completion Files](http://docs.sublimetext.info/en/latest/reference/completions.html)  
 
 ### 自动补全
 
