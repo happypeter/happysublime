@@ -31,6 +31,9 @@
 .highlight .no, .highlight .o {
   color: #fff;
 }
+.highlight .nv {
+  color: #b6b1ce;
+}
 
 /*keep things to defualt color*/
 .highlight .kp, .highlight .p, .highlight .n{
