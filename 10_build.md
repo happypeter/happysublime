@@ -3,8 +3,7 @@ layout: default
 title: 批处理任务 build system
 ---
 
-
-来聊创建自己的 build system。如果你发觉你总在输入重复的文字内容，那就要用前面的代码补全的功能。如果你发现有一系列操作或者是命令是要很频繁的执行的，例如一个软件写完之后要测试编译执行看报错，那就可以把这些操作写成一个 build，一键完成。
+来聊创建自己的 Build System。如果你发觉你总在输入重复的文字内容，那就要用前面的代码补全的功能。如果你发现有一系列操作或者是命令是要很频繁的执行的，例如一个软件写完之后要测试编译执行看报错，那就可以把这些操作写成一个 build，一键完成。
 
 参考 [这里](http://sublime-text-unofficial-documentation.readthedocs.org/en/latest/reference/build_systems.html) 。
 
