@@ -25,27 +25,32 @@ menu->tools->build system-> new build system 这里打开一个文件，粘贴�
 保存到 User/ 之下，名字叫 browse.sublime-build 。
 
 ### build 我的 jekyll 页面
-<!-- 给我的 jekyll 文件来一个 build，可以直接 push 到 github 并且，刷新页面的 -->
 
-可以在 build 这里直接执行一个 sh script
+再来个稍微复杂点的。还是说我这里的视频笔记，每次写完一些内容之后，我都要执行
 
-git.sublime-build 中这样写
+   git commit -a -m"wip" && git push
+
+把新改的内容做成一个版本然后再推送到 github 上面，这样我再到 github 上对应的页面刷新，就看到效果了。这些步骤不少，看看怎么样做成一个 build 来一键完成。
+
+大体思路是这样，把所有的工作都写成一个 bash 脚本，然后在 build 这里直接执行。
+
+jekyll.sublime-build 中这样写
 
 {% highlight json %}
 {
-    "cmd": ["/Users/peter/bin/git.sh", "$file"],
+    "cmd": ["/Users/peter/bin/jekyll.sh", "$file"],
     "working_dir": "$file_path",
     "selector": "text.html.markdown"
 }
 {% endhighlight %}
 
-注意 git.sh 中一定要写 shebang 也就是第一行的声明，不然 sublime 中就会报格式错误，另外就是要执行
+注意 jekyll.sh 中一定要写 shebang 也就是第一行的声明，不然 sublime 中就会报格式错误，另外就是要执行
 
-    chmod +x git.sh
+    chmod +x jekyll.sh
 
 关于命令行使用和 shell 脚本编程，可以参考 [Linux Guide for Developers](http://www.imooc.com/view/181) 这门课程。
 
-现在，就可以执行 git.sh 了，这个里面写
+现在，就可以执行 jekyll.sh 了，这个里面写
 
 {% highlight sh %}
 #!/usr/bin/env bash
