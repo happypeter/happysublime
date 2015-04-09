@@ -28,7 +28,7 @@ menu->tools->build system-> new build system 这里打开一个文件，粘贴�
 
 再来个稍微复杂点的。还是说我这里的视频笔记，每次写完一些内容之后，我都要执行
 
-   git commit -a -m"wip" && git push
+    git commit -a -m"wip" && git push
 
 把新改的内容做成一个版本然后再推送到 github 上面，这样我再到 github 上对应的页面刷新，就看到效果了。这些步骤不少，看看怎么样做成一个 build 来一键完成。
 
