@@ -70,5 +70,4 @@ URL="happypeter.github.io/"$PROJECT"/"$PAGE
 这样每次我修改完视频笔记就可以直接敲 Cmd-b 推送到 github 上，并且在 chrome 中打开看到效果了。不过美中不足的时并不是直接推送到 github 上的内容，
 jekyll 网站页面上就会立即生效，所以一般要等几秒再刷新一下才能看到效果。
 
-
 <!-- https://code.tutsplus.com/courses/perfect-workflow-in-sublime-text-2/lessons/custom-builds -->
