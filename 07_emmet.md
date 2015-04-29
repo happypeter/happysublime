@@ -54,7 +54,7 @@ Emmet 可不单单就是提供更为丰富的 tab 补齐功能。他还提供很
 
 <!-- 装好 emmet 之后是不是多了很多 snippet ? 用 css 文件来看一下 -->
 
-<!--  happycasts.net/ep/111 -->
+<!--  haoduoshipin.com/ep/111 -->
 
 <!-- 
 mi.com 
