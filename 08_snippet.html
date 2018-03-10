@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>自定制代码片段</title>
+    <link rel="stylesheet" href="./css/master.css" type="text/css" media="screen" charset="utf-8"/>
+    <link rel="stylesheet" href="./css/colortheme.css" type="text/css" media="screen" charset="utf-8"/>
+    <link rel="icon" type="image/png" href="./images/sublime.png" />
+  </head>
+  <body>
+    <div id='wrapper'>
+      <div id='header'>
+        <h1>Sublime</h1>
+        <h2>自定制代码片段</h2>
+      </div>
+      <div id='menu'>
+        <ul>
+          <li><a href='/happysublime'>目录</a></li>
+          <li><a href='./about.html'>关于</a></li>
+        </ul>
+      </div>
+      <div class='content'>
+        <p>snippet 这个英文单词的意思就是，小片段。 sublime 可以让用户创建自己的 snippet 。</p>
+
+<h3 id="section">寻找重复操作</h3>
+
+<p>创建什么呢？这个不是凭空想出来的，而是要定位自己日常工作中的重复性劳动。比如我在写视频笔记的时候，用的时 github 的 jekyll 这种格式，每个页面头上都要有这样几行内容</p>
+
+<pre><code>---
+layout: default
+title: 标题
+---
+</code></pre>
+
+<p>而且输入完之后还要输入一个空行，然后再来输入正文。根据这个需求，就可以 menu-&gt;tools-&gt;new snippet 来创建下面的内容</p>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;snippet&gt;</span>
+  <span class="nt">&lt;content&gt;</span><span class="cp">&lt;![CDATA[</span>
+<span class="cp">---</span>
+<span class="cp">layout: default</span>
+<span class="cp">title: ${1:标题}</span>
+<span class="cp">---</span>
+
+<span class="cp">${2}</span>
+<span class="cp">]]&gt;</span><span class="nt">&lt;/content&gt;</span>
+  <span class="nt">&lt;tabTrigger&gt;</span>header<span class="nt">&lt;/tabTrigger&gt;</span>
+  <span class="nt">&lt;scope&gt;</span>text.html.markdown<span class="nt">&lt;/scope&gt;</span>
+<span class="nt">&lt;/snippet&gt;</span></code></pre></div>
+
+<p>命名为 jekyll-header.sublime-snippet ，保存到 Packages/User 之下。这样到一个 markdown 文件中，命令面板中输入 <code>snippet</code> 就可以看到这个 snippet 的信息了。</p>
+
+<p>敲 snippet 的同时也看到了 php 相关的 snippet 。但是其实我是不写 php 的，那怎么样避免这些信息出现呢？</p>
+
+<h3 id="php-snippet-">php snippet 如何卸载</h3>
+
+<p>其实这个问题就是，默认就装好的包，如何来禁用。到 Settings User 中</p>
+
+<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="s2">&quot;ignored_packages&quot;</span><span class="err">:</span><span class="p">[</span>
+  <span class="s2">&quot;Vintage&quot;</span><span class="p">,</span> <span class="err">//</span> <span class="err">missing</span> <span class="err">this</span> <span class="err">will</span> <span class="err">trigger</span> <span class="err">vintage</span> <span class="err">mode</span>
+  <span class="s2">&quot;PHP&quot;</span><span class="p">,</span> <span class="err">//</span> <span class="err">to</span> <span class="err">avoid</span> <span class="err">php</span> <span class="err">snippets</span> <span class="err">in</span> <span class="err">html</span> <span class="err">files</span>
+<span class="p">]</span><span class="err">,</span></code></pre></div>
+
+<h3 id="scope">作用范围 scope</h3>
+
+<p>最后来说说上面 snippet 中填写的 scope 是怎么得到的。</p>
+
+<p>在 keybinding Default 中又这样的设置</p>
+
+<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span> <span class="nt">&quot;keys&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;super+alt+p&quot;</span><span class="p">],</span> <span class="nt">&quot;command&quot;</span><span class="p">:</span> <span class="s2">&quot;show_scope_name&quot;</span> <span class="p">}</span><span class="err">,</span>
+<span class="p">{</span> <span class="nt">&quot;keys&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;ctrl+shift+p&quot;</span><span class="p">],</span> <span class="nt">&quot;command&quot;</span><span class="p">:</span> <span class="s2">&quot;show_scope_name&quot;</span> <span class="p">}</span><span class="err">,</span></code></pre></div>
+
+<p>所以可以通过上面的任意一组快捷键来读取当前文件的 scope ，爆出来的内容有可能是空格隔开的多个字符串，取第一个字符串就行了。基本上各种代码文件的 scope 都是 <code>source</code> 打头，例如
+<code>source.js</code> <code>source.ruby</code> <code>source.python</code> 。其他的都是以 <code>text</code> 打头，例如 <code>text.html.basic</code> <code>text.html.markdown</code> <code>text.plain</code> 等。
+那么如何给一个 snippet 定义多于一个文件类型的 scope 呢？可以这样</p>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;scope&gt;</span>text.html.markdown, text.plain<span class="nt">&lt;/scope&gt;</span></code></pre></div>
+
+
+        <div class='clearfix'></div>
+      </div>
+    </div>
+    <div id='footer'>
+      Hosted by <a href='http://github.com' target='_blank'>GitHub</a> and powered by <a href='http://github.com/mojombo/jekyll'>Jekyll</a>.
+    </div>
+  </body>
+</html>
+

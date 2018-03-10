@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>批处理任务 build system</title>
+    <link rel="stylesheet" href="./css/master.css" type="text/css" media="screen" charset="utf-8"/>
+    <link rel="stylesheet" href="./css/colortheme.css" type="text/css" media="screen" charset="utf-8"/>
+    <link rel="icon" type="image/png" href="./images/sublime.png" />
+  </head>
+  <body>
+    <div id='wrapper'>
+      <div id='header'>
+        <h1>Sublime</h1>
+        <h2>批处理任务 build system</h2>
+      </div>
+      <div id='menu'>
+        <ul>
+          <li><a href='/happysublime'>目录</a></li>
+          <li><a href='./about.html'>关于</a></li>
+        </ul>
+      </div>
+      <div class='content'>
+        <p>来聊创建自己的 Build System。如果你发觉你总在输入重复的文字内容，那就要用前面的代码补全的功能。如果你发现有一系列操作或者是命令是要很频繁的执行的，例如一个软件写完之后要测试编译执行看报错，那就可以把这些操作写成一个 build，一键完成。</p>
+
+<p>参考 <a href="http://sublime-text-unofficial-documentation.readthedocs.org/en/latest/reference/build_systems.html">这里</a> 。</p>
+
+<h3 id="chrome--html-">chrome 打开 html 文件</h3>
+
+<p>名字虽然叫 build 但是执行的任务也不是非得编译软件，任何命令都可以呀，只要能自动化重复性劳动就行呗。</p>
+
+<p>menu-&gt;tools-&gt;build system-&gt; new build system 这里打开一个文件，粘贴下面内容</p>
+
+<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span>
+  <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;/Applications/Google Chrome.app/Contents/MacOS/Google Chrome&quot;</span><span class="p">,</span> <span class="s2">&quot;$file&quot;</span><span class="p">],</span>
+  <span class="nt">&quot;selector&quot;</span><span class="p">:</span> <span class="s2">&quot;text.html&quot;</span>
+<span class="p">}</span></code></pre></div>
+
+<p>注意，根据 <a href="http://sublime-text-unofficial-documentation.readthedocs.org/en/latest/reference/build_systems/configuration.html">这里</a> 的说明，selector 生效的前提是 menu-&gt;tools-&gt; build system-&gt;Automatic 设置为 true 。</p>
+
+<p>保存到 User/ 之下，名字叫 browse.sublime-build 。</p>
+
+<h3 id="build--jekyll-">build 我的 jekyll 页面</h3>
+
+<p>再来个稍微复杂点的。还是说我这里的视频笔记，每次写完一些内容之后，我都要执行</p>
+
+<pre><code>git commit -a -m"wip" &amp;&amp; git push
+</code></pre>
+
+<p>把新改的内容做成一个版本然后再推送到 github 上面，这样我再到 github 上对应的页面刷新，就看到效果了。这些步骤不少，看看怎么样做成一个 build 来一键完成。</p>
+
+<p>大体思路是这样，把所有的工作都写成一个 bash 脚本，然后在 build 这里直接执行。</p>
+
+<p>jekyll.sublime-build 中这样写</p>
+
+<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">{</span>
+    <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;/Users/peter/bin/jekyll.sh&quot;</span><span class="p">,</span> <span class="s2">&quot;$file&quot;</span><span class="p">],</span>
+    <span class="nt">&quot;working_dir&quot;</span><span class="p">:</span> <span class="s2">&quot;$file_path&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;selector&quot;</span><span class="p">:</span> <span class="s2">&quot;text.html.markdown&quot;</span>
+<span class="p">}</span></code></pre></div>
+
+<p>注意 jekyll.sh 中一定要写 shebang 也就是第一行的声明，不然 sublime 中就会报格式错误，另外就是要执行</p>
+
+<pre><code>chmod +x jekyll.sh
+</code></pre>
+
+<p>关于命令行使用和 shell 脚本编程，可以参考 <a href="http://www.imooc.com/view/181">Linux Guide for Developers</a> 这门课程。</p>
+
+<p>现在，就可以执行 jekyll.sh 了，这个里面写</p>
+
+<div class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="c">#!/usr/bin/env bash</span>
+git commit -a -m<span class="s2">&quot;wip&quot;</span> <span class="o">&amp;&amp;</span> git push
+<span class="c"># echo  $1</span>
+<span class="nv">VAR</span><span class="o">=</span><span class="nv">$1</span> <span class="c"># full file patch, e.g /Users/peter/rails10-va/happysublime/10_build.md</span>
+<span class="nv">FILE</span><span class="o">=</span><span class="sb">`</span>basename <span class="nv">$VAR</span><span class="sb">`</span> <span class="c"># get 10_build.md from full path</span>
+<span class="nv">PAGE</span><span class="o">=</span><span class="k">${</span><span class="nv">FILE</span><span class="p">%.*</span><span class="k">}</span><span class="s2">&quot;.html&quot;</span> <span class="c"># 10_build.md -&gt; 10_build.html</span>
+
+<span class="nv">DIR</span><span class="o">=</span><span class="sb">`</span>dirname <span class="nv">$VAR</span><span class="sb">`</span>
+<span class="nv">PROJECT</span><span class="o">=</span><span class="sb">`</span>basename <span class="nv">$DIR</span><span class="sb">`</span> <span class="c"># get happysublime</span>
+<span class="c"># echo $PARENT</span>
+<span class="nv">URL</span><span class="o">=</span><span class="s2">&quot;happypeter.github.io/&quot;</span><span class="nv">$PROJECT</span><span class="s2">&quot;/&quot;</span><span class="nv">$PAGE</span>
+<span class="s1">&#39;/Applications/Google Chrome.app/Contents/MacOS/Google Chrome&#39;</span> <span class="nv">$URL</span></code></pre></div>
+
+<p>这样每次我修改完视频笔记就可以直接敲 Cmd-b 推送到 github 上，并且在 chrome 中打开看到效果了。不过美中不足的时并不是直接推送到 github 上的内容，
+jekyll 网站页面上就会立即生效，所以一般要等几秒再刷新一下才能看到效果。</p>
+
+<!-- https://code.tutsplus.com/courses/perfect-workflow-in-sublime-text-2/lessons/custom-builds -->
+
+        <div class='clearfix'></div>
+      </div>
+    </div>
+    <div id='footer'>
+      Hosted by <a href='http://github.com' target='_blank'>GitHub</a> and powered by <a href='http://github.com/mojombo/jekyll'>Jekyll</a>.
+    </div>
+  </body>
+</html>
+
